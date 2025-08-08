@@ -10989,23 +10989,49 @@ p {
 
 }
 
-.nav-work-btn {
-  font-family: "Druk Wide Italic", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  background: #222;
-  color: #fff !important;
-  font-weight: bold;
-  border-radius: 2em;
-  padding: 0.5em 1.5em;
-  display: inline-block;
-  transition: background 0.2s;
-  border: none;
-  text-align: center;
-}
 .nav-work-btn:hover,
 .nav-work-btn:focus {
   background: #000;
   color: #fff !important;
   text-decoration: none;
+}
+/* Desktop: styled Work with Us button */
+@media (min-width: 768px) {
+  .nav-work-btn {
+    font-family: "Druk Wide Italic", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    background: #222;
+    color: #fff !important;
+    font-weight: bold;
+    border-radius: 2em;
+    padding: 0.5em 1.5em;
+    display: inline-block;
+    transition: background 0.2s;
+    border: none;
+    text-align: center;
+  }
+  .nav-work-btn:hover,
+  .nav-work-btn:focus {
+    background: #000;
+    color: #fff !important;
+    text-decoration: none;
+  }
+}
+
+/* Mobile: normal nav item */
+@media (max-width: 767px) {
+  .nav-work-btn {
+    background: none !important;
+    color: #000 !important;
+    font-family: "Oswald", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-weight: 700;
+    border-radius: 0;
+    padding: 2em 1em;
+    border: none;
+    text-align: center; /* <-- Center text */
+    display: block;
+    transition: none;     /* <-- Center horizontally */
+    width: 100%; 
+  }
 }
 
 @media (min-width: 992px) {
@@ -11051,8 +11077,9 @@ p {
 }
 
 header.masthead {
-  padding-top: 10.5rem;
-  padding-bottom: 6rem;
+  
+  padding-top: 14rem;
+  padding-bottom: 14rem;
   text-align: left;
   color: black;
   background-image: url("../assets/img/portada.jpg");
@@ -11078,7 +11105,7 @@ header.masthead {
 }
 
 header.masthead .masthead-subheading {
-  font-size: 3rem;
+  font-size: 2.5rem;
   font-style: normal;
   line-height: 1rem;
   margin-bottom: 25px;
@@ -11089,29 +11116,51 @@ header.masthead .masthead-heading {
   font-size: 4rem;
   font-weight: 700;
   line-height: 3.25rem;
-  margin-bottom: 1rem;
+  margin-bottom: 3rem;
   font-family: 'Druk Wide', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
-@media (min-width: 768px) {
+@media (max-width: 767px) {
   header.masthead {
-    padding-top: 17rem;
-    padding-bottom: 12.5rem;
+    padding-top: 16rem;
+    padding-bottom: 2rem;
+    text-align: left;
+  }
+  .masthead-heading-group {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+  }
+  .masthead-heading {
+    font-size: 2.2rem;
+    line-height: 1.1;
+    letter-spacing: 0.05em;
+  }
+  .imperial-style {
+    font-size: 3rem;
+    margin-left: 0;
+    line-height: 1.1;
+    padding-top: 0;
   }
   header.masthead .masthead-subheading {
-    font-size: 2.25rem;
-    font-style: none;
-    line-height: 2.25rem;
-    margin-bottom: 2rem;
+    font-size: 1.2rem;
+    line-height: 1.3;
+    margin-bottom: 1rem;
+    margin-top: 0.5rem;
+    color: #000;
+    font-family: "Oswald Light", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    text-align: left;
+    word-break: break-word;
+    position: relative;
+    z-index: 2;
   }
-  header.masthead .masthead-heading {
-    font-size: 4.5rem;
-    font-weight: 700;
-    line-height: 4.5rem;
-    margin-bottom: 4rem;
+  .btn-xl {
+    font-size: 1rem;
+    padding: 0.5em 1em;
+    border-radius: 2em;
+    margin-top: 0.5rem;
   }
 }
-
 /* ===== About Section ===== */
 .about-section {
   background: #dddddd;
@@ -11138,7 +11187,7 @@ header.masthead .masthead-heading {
 }
 .about-title-main {
   font-family: 'Druk Wide', Arial, sans-serif;
-  font-size: 2.8rem;
+  font-size: 6rem;
   font-weight: 800;
   text-transform: uppercase;
   line-height: 1;
@@ -11218,6 +11267,36 @@ header.masthead .masthead-heading {
     max-width: 100%;
   }
 }
+
+/* ===== Moodboard Section ===== */
+.moodboard-section {
+  background-color: #ddd; /* Same as your About section background */
+  padding: 40px 0;
+}
+
+.moodboard-image {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.moodboard-image img {
+  max-width: 100%;
+  height: auto;
+}
+
+.moodboard-text h4 {
+  font-family: 'Druk Wide Italic', sans-serif;
+  font-weight: 900;
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.moodboard-text p {
+  font-family: 'Oswald Light', sans-serif;
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
 
 /* ===== Portfolio Section ===== */
 #portfolio .portfolio-list {
