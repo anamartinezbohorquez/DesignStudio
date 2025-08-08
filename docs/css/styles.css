@@ -11,7 +11,44 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
 
- @import url('https://fonts.googleapis.com/css2?family=Druk+Wide:wdth,wght@112.5,700&display=swap');
+@font-face {
+  font-family: 'Druk Wide';
+  src: url('../assets/fonts/DrukTextWide-Bold-Trial.otf') format('woff2'),
+       url('../assets/fonts/DrukTextWide-Bold-Trial.otf') format('woff');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Druk Wide Italic';
+  src: url('../assets/fonts/DrukTextWide-BoldItalic-Trial.otf') format('woff2'),
+       url('../assets/fonts/DrukTextWide-BoldItalic-Trial.otf') format('woff');
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Oswald Light';
+  src: url('../assets/fonts/Oswald-Light.ttf') format('woff2'),
+       url('../assets/fonts/Oswald-Light.ttf') format('woff');
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Oswald';
+  src: url('../assets/fonts/Oswald-Bold.woff2') format('woff2'),
+       url('../assets/fonts/Oswald-Bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Imperial';
+  src: url('../assets/fonts/ImperialScript-Regular.ttf') format('woff2'),
+       url('../assets/fonts/ImperialScript-Regular.ttf') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
 
 :root {
   --bs-blue: #0d6efd;
@@ -60,7 +97,7 @@
   --bs-font-sans-serif: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --bs-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   --bs-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
-  --bs-body-font-family: Roboto Slab, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+  --bs-body-font-family: 'Oswald', 'Druk Wide', 'Imperial', sans-serif, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
   --bs-body-font-size: 1rem;
   --bs-body-font-weight: 400;
   --bs-body-line-height: 1.5;
@@ -10898,9 +10935,10 @@ p {
 }
 .btn-xl {
   padding: 1.25rem 2.5rem;
-  font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-family: "Druk Wide Italic", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-size: 1.125rem;
   font-weight: 700;
+   border-radius: 2.5rem;
 }
 
 .btn-social {
@@ -10980,30 +11018,53 @@ p {
     margin-right: 0;
   }
 }
+
+.masthead-heading-group {
+  display: flex;
+  align-items: baseline;
+  gap: -1rem; /* adjust spacing as needed */
+}
+
 header.masthead {
   padding-top: 10.5rem;
   padding-bottom: 6rem;
-  text-align: center;
-  color: #fff;
-  background-image: url("../assets/img/personas.jpg");
+  text-align: left;
+  color: black;
+  background-image: url("../assets/img/portada.jpg");
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-position: center center;
   background-size: cover;
+  font-family: 'Druk Wide', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
+
+.imperial-style {
+  font-family: 'Imperial Script', 'Imperial', cursive, serif;
+  font-size: 6rem;
+  font-style: none;
+  font-weight: 400;
+  margin-left: 0.2em;
+  vertical-align: middle;
+  text-transform: none;
+  letter-spacing: 0;
+  line-height: 1;
+  display: inline-block;
+  padding-top: -0.4em; 
+}
+
 header.masthead .masthead-subheading {
   font-size: 1.5rem;
-  font-style: italic;
+  font-style: normal;
   line-height: 1.5rem;
   margin-bottom: 25px;
-  font-family: "Roboto Slab", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-family: "Oswald Light", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 header.masthead .masthead-heading {
   font-size: 3.25rem;
   font-weight: 700;
   line-height: 3.25rem;
   margin-bottom: 2rem;
-  font-family: 'Druk Wide', 'Montserrat', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-family: 'Druk Wide', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
 @media (min-width: 768px) {
@@ -11013,7 +11074,7 @@ header.masthead .masthead-heading {
   }
   header.masthead .masthead-subheading {
     font-size: 2.25rem;
-    font-style: italic;
+    font-style: none;
     line-height: 2.25rem;
     margin-bottom: 2rem;
   }
@@ -11034,6 +11095,7 @@ header.masthead .masthead-heading {
   max-width: 100%;
   margin: 0 auto;
   padding: 0 1rem;
+  border-radius: 0.5rem;
   box-sizing: border-box;
   align-items: center;
 }
@@ -11044,7 +11106,7 @@ header.masthead .masthead-heading {
   max-width: 900px;
   min-height: 260px;
   aspect-ratio: 3 / 1;
-  border-radius: 0.75rem;
+  
   overflow: hidden;
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.12);
   display: flex;
