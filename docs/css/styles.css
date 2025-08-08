@@ -2884,55 +2884,38 @@ textarea.form-control-lg {
   opacity: var(--bs-btn-disabled-opacity);
 }
 
-.btn-primary {
-  --bs-btn-color: #fff;
-  --bs-btn-bg: #ffc800;
-  --bs-btn-border-color: #ffc800;
-  --bs-btn-hover-color: #fff;
-  --bs-btn-hover-bg: #d9aa00;
-  --bs-btn-hover-border-color: #cca000;
-  --bs-btn-focus-shadow-rgb: 255, 208, 38;
-  --bs-btn-active-color: #fff;
-  --bs-btn-active-bg: #cca000;
-  --bs-btn-active-border-color: #bf9600;
-  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
-  --bs-btn-disabled-color: #fff;
-  --bs-btn-disabled-bg: #ffc800;
-  --bs-btn-disabled-border-color: #ffc800;
-}
 
 /* Custom override for .btn-primary and .btn-warning */
-.btn-primary,
-.btn-warning {
+.btn-primary{
   --bs-btn-color: #fff;
-  --bs-btn-bg: #000;
-  --bs-btn-border-color: #000;
+  --bs-btn-bg: #FF5C00;
+  --bs-btn-border-color: #FF5C00;
   --bs-btn-hover-color: #fff;
-  --bs-btn-hover-bg: #222;
-  --bs-btn-hover-border-color: #222;
+  --bs-btn-hover-bg: #FF5C00;
+  --bs-btn-hover-border-color: #FF5C00;
   --bs-btn-focus-shadow-rgb: 0,0,0;
   --bs-btn-active-color: #fff;
-  --bs-btn-active-bg: #333;
-  --bs-btn-active-border-color: #333;
+  --bs-btn-active-bg: #FF5C00;
+  --bs-btn-active-border-color: #FF5C00;
   --bs-btn-disabled-color: #fff;
-  --bs-btn-disabled-bg: #000;
-  --bs-btn-disabled-border-color: #000;
+  --bs-btn-disabled-bg: #FF5C00;
+  --bs-btn-disabled-border-color: #FF5C00;
 }
 
 .btn-outline-primary,
 .btn-outline-warning {
-  --bs-btn-color: #000;
-  --bs-btn-border-color: #000;
+  --bs-btn-color: #FF5C00;
+  --bs-btn-border-color: #FF5C00;
   --bs-btn-hover-color: #fff;
-  --bs-btn-hover-bg: #000;
-  --bs-btn-hover-border-color: #000;
+  --bs-btn-hover-bg: #FF5C00;
+  --bs-btn-hover-border-color: #FF5C00;
   --bs-btn-focus-shadow-rgb: 0,0,0;
   --bs-btn-active-color: #fff;
-  --bs-btn-active-bg: #222;
-  --bs-btn-active-border-color: #222;
-  --bs-btn-disabled-color: #000;
+  --bs-btn-active-bg: #FF5C00;
+  --bs-btn-active-border-color: #FF5C00;
+  --bs-btn-disabled-color: #FF5C00;
   --bs-btn-disabled-bg: transparent;
-  --bs-btn-disabled-border-color: #000;
+  --bs-btn-disabled-border-color: #FF5C00;
   --bs-gradient: none;
 }
 
@@ -2947,7 +2930,7 @@ textarea.form-control-lg {
   --bs-btn-active-color: #fff;
   --bs-btn-active-bg: #565e64;
   --bs-btn-active-border-color: #51585e;
-  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  --bs-btn-active-shadow: inset 0 3px 5px #FF5C00;
   --bs-btn-disabled-color: #fff;
   --bs-btn-disabled-bg: #6c757d;
   --bs-btn-disabled-border-color: #6c757d;
@@ -3160,11 +3143,11 @@ textarea.form-control-lg {
 .btn-outline-light {
   --bs-btn-color: #f8f9fa;
   --bs-btn-border-color: #f8f9fa;
-  --bs-btn-hover-color: #000;
+  --bs-btn-hover-color: #FF5C00;
   --bs-btn-hover-bg: #f8f9fa;
   --bs-btn-hover-border-color: #f8f9fa;
   --bs-btn-focus-shadow-rgb: 248, 249, 250;
-  --bs-btn-active-color: #000;
+  --bs-btn-active-color: #FF5C00;
   --bs-btn-active-bg: #f8f9fa;
   --bs-btn-active-border-color: #f8f9fa;
   --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
@@ -10994,15 +10977,35 @@ p {
 
 /* Keep nav link styles as you have */
 #mainNav .navbar-nav .nav-item .nav-link {
-  font-family: "Oswald", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-size: 0.95rem;
   color: #000;
   letter-spacing: 0.0625em;
   text-transform: none;
 }
 #mainNav .navbar-nav .nav-item .nav-link.active,
-#mainNav .navbar-nav .nav-item .nav-link:hover {
+#mainNav .navbar-nav .nav-item {
   color: #000;
+  font-family: "Oswald", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+
+}
+
+.nav-work-btn {
+  font-family: "Druk Wide Italic", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  background: #222;
+  color: #fff !important;
+  font-weight: bold;
+  border-radius: 2em;
+  padding: 0.5em 1.5em;
+  display: inline-block;
+  transition: background 0.2s;
+  border: none;
+  text-align: center;
+}
+.nav-work-btn:hover,
+.nav-work-btn:focus {
+  background: #000;
+  color: #fff !important;
+  text-decoration: none;
 }
 
 @media (min-width: 992px) {
