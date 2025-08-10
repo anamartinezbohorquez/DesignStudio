@@ -3874,40 +3874,51 @@ textarea.form-control-lg {
   flex-grow: 1;
   align-items: center;
 }
-
+/* Navbar toggler button */
 .navbar-toggler {
-  padding: var(--bs-navbar-toggler-padding-y) var(--bs-navbar-toggler-padding-x);
-  font-size: var(--bs-navbar-toggler-font-size);
+  padding: 0.25rem 0.75rem;
+  font-size: 1.25rem;
   line-height: 1;
-  color: var(--bs-navbar-color);
+  color: rgba(0, 0, 0, 0.55);
   background-color: transparent;
-  border: var(--bs-border-width) solid var(--bs-navbar-toggler-border-color);
-  border-radius: var(--bs-navbar-toggler-border-radius);
-  transition: var(--bs-navbar-toggler-transition);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 0.375rem;
+  transition: box-shadow 0.15s ease-in-out;
 }
+
 @media (prefers-reduced-motion: reduce) {
   .navbar-toggler {
     transition: none;
   }
 }
+
 .navbar-toggler:hover {
   text-decoration: none;
 }
+
 .navbar-toggler:focus {
   text-decoration: none;
   outline: 0;
-  box-shadow: 0 0 0 var(--bs-navbar-toggler-focus-width);
+  box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
 }
 
+/* Toggler icon (hamburger menu) */
 .navbar-toggler-icon {
   display: inline-block;
   width: 1.5em;
   height: 1.5em;
   vertical-align: middle;
-  background-image: var(--bs-navbar-toggler-icon-bg);
   background-repeat: no-repeat;
   background-position: center;
   background-size: 100%;
+
+  /* Default Bootstrap hamburger icon (black) */
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba%280, 0, 0, 0.55%29' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+/* Example: white icon for dark navbar */
+.navbar-dark .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba%28255, 255, 255, 0.55%29' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
 }
 
 .navbar-nav-scroll {
@@ -10988,13 +10999,13 @@ p {
   font-family: "Oswald", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 
 }
-
 .nav-work-btn:hover,
 .nav-work-btn:focus {
   background: #000;
   color: #fff !important;
   text-decoration: none;
 }
+
 /* Desktop: styled Work with Us button */
 @media (min-width: 768px) {
   .nav-work-btn {
@@ -11070,25 +11081,31 @@ p {
   }
 }
 
+
+header.masthead {
+  background-image: url("../assets/img/portada.jpg");
+  background-size: cover; /* Fill the background */
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-color: #000;
+  min-height: 100vh; /* Make it full height */
+  display: flex;
+  align-items: center; /* Center vertically */
+  justify-content: flex-start; /* Align content to the left like in screenshot */
+  padding-left: 5%; /* Add space from the left */
+}
 .masthead-heading-group {
   display: flex;
   align-items: baseline;
-  gap: -1rem; /* adjust spacing as needed */
+  gap: 0.3rem; /* Small positive gap so text sits nicely */
 }
 
-header.masthead {
-  
-  padding-top: 14rem;
-  padding-bottom: 14rem;
-  text-align: left;
-  color: black;
-  background-image: url("../assets/img/portada.jpg");
-  background-repeat: no-repeat;
-  background-attachment: scroll;
-  background-position: center center;
-  background-size: cover;
-  font-family: 'Druk Wide', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+header.masthead .container {
+  position: relative;
+  z-index: 2;
+  text-align: left; /* Left-align text */
 }
+
 
 .imperial-style {
   font-family: 'Imperial Script', 'Imperial', cursive, serif;
@@ -11120,47 +11137,50 @@ header.masthead .masthead-heading {
   font-family: 'Druk Wide', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
+/* Mobile styles */
 @media (max-width: 767px) {
   header.masthead {
-    padding-top: 16rem;
-    padding-bottom: 2rem;
-    text-align: left;
+    min-height: 80vh; /* taller so background is visible */
+    padding: 2rem 1rem;
+    background-size: cover; /* always fill */
+    background-position: center;
+    display: flex;
+    align-items: flex-end; /* text at bottom for better image focus */
+    justify-content: flex-start;
   }
+
   .masthead-heading-group {
-    flex-direction: column;
+    flex-direction: column; /* stack title + script */
     align-items: flex-start;
     gap: 0;
   }
+
   .masthead-heading {
-    font-size: 2.2rem;
+    font-size: 0.1rem;
     line-height: 1.1;
-    letter-spacing: 0.05em;
+    margin-bottom: 0.3rem;
   }
+
   .imperial-style {
-    font-size: 3rem;
+    font-size: 2.5rem;
     margin-left: 0;
     line-height: 1.1;
-    padding-top: 0;
   }
+
   header.masthead .masthead-subheading {
-    font-size: 1.2rem;
-    line-height: 1.3;
-    margin-bottom: 1rem;
-    margin-top: 0.5rem;
-    color: #000;
-    font-family: "Oswald Light", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    text-align: left;
-    word-break: break-word;
-    position: relative;
-    z-index: 2;
-  }
-  .btn-xl {
     font-size: 1rem;
+    line-height: 1.3;
+    margin-bottom: 0.8rem;
+    color: #000;
+  }
+
+  .btn-xl {
+    font-size: 0.9rem;
     padding: 0.5em 1em;
     border-radius: 2em;
-    margin-top: 0.5rem;
   }
 }
+
 /* ===== About Section ===== */
 .about-section {
   background: #dddddd;
