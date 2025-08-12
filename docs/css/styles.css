@@ -10999,13 +10999,13 @@ p {
   font-family: "Oswald", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 
 }
+
 .nav-work-btn:hover,
 .nav-work-btn:focus {
   background: #000;
   color: #fff !important;
   text-decoration: none;
 }
-
 /* Desktop: styled Work with Us button */
 @media (min-width: 768px) {
   .nav-work-btn {
@@ -11106,6 +11106,10 @@ header.masthead .container {
   text-align: left; /* Left-align text */
 }
 
+header.masthead .btn-xl {
+  margin-top: 3rem;
+}
+
 
 .imperial-style {
   font-family: 'Imperial Script', 'Imperial', cursive, serif;
@@ -11140,46 +11144,49 @@ header.masthead .masthead-heading {
 /* Mobile styles */
 @media (max-width: 767px) {
   header.masthead {
-    min-height: 80vh; /* taller so background is visible */
+    min-height: 100vh;
     padding: 2rem 1rem;
-    background-size: cover; /* always fill */
+    background-size: cover;
     background-position: center;
     display: flex;
-    align-items: flex-end; /* text at bottom for better image focus */
+    align-items: flex-end;
     justify-content: flex-start;
   }
 
   .masthead-heading-group {
-    flex-direction: column; /* stack title + script */
-    align-items: flex-start;
-    gap: 0;
+    flex-direction: row; /* keep side by side */
+    align-items: baseline; /* align text nicely */
+    gap: 0.3rem; /* small space between words */
   }
 
   .masthead-heading {
-    font-size: 0.1rem;
+    font-size: 1rem; /* larger for readability */
+    color: #000;
     line-height: 1.1;
-    margin-bottom: 0.3rem;
+    margin-bottom: 0;
   }
 
   .imperial-style {
-    font-size: 2.5rem;
-    margin-left: 0;
+    color: #000;
+    font-size: 2.3rem;
     line-height: 1.1;
   }
 
   header.masthead .masthead-subheading {
-    font-size: 1rem;
+    font-size: 1.1rem;
     line-height: 1.3;
     margin-bottom: 0.8rem;
     color: #000;
   }
 
   .btn-xl {
+    margin-top: 1rem;
     font-size: 0.9rem;
     padding: 0.5em 1em;
     border-radius: 2em;
   }
 }
+
 
 /* ===== About Section ===== */
 .about-section {
@@ -11207,7 +11214,7 @@ header.masthead .masthead-heading {
 }
 .about-title-main {
   font-family: 'Druk Wide', Arial, sans-serif;
-  font-size: 6rem;
+  font-size: 5rem;
   font-weight: 800;
   text-transform: uppercase;
   line-height: 1;
@@ -11230,24 +11237,24 @@ header.masthead .masthead-heading {
 .about-bold {
   font-family: 'Druk Wide', Arial, sans-serif;
   font-weight: 700;
-  font-size: 1.3rem;
+  font-size: 2rem;
   margin: 1.5rem 0 0.5rem 0;
 }
 .about-desc {
-  font-size: 1rem;
+  font-size: 1.5rem;
   margin-bottom: 1.5rem;
 }
 .about-skills-title {
   font-family: 'Druk Wide', Arial, sans-serif;
   font-weight: 700;
-  font-size: 1.5rem;
+  font-size: 2rem;
   margin: 1.5rem 0 0.5rem 0;
   text-transform: uppercase;
 }
 .about-skills-list {
   list-style: none;
   padding-left: 0;
-  font-size: 1rem;
+  font-size: 1.5rem;
   margin-bottom: 1.5rem;
 }
 .about-skills-list li {
