@@ -12,7 +12,7 @@
 
 
 <body id="page-top">
-  <div id="p5-global-canvas" style="position:fixed;top:0;left:0;width:100vw;height:100vh;pointer-events:none;z-index:2;"></div>
+<div id="p5-global-canvas" style="position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:1;"></div>
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
         <div class="container">
@@ -64,83 +64,6 @@
         </ul>
       </div>
     </div>
-  
-    <!-- p5.js Canvas Container --> 
-  <div id="p5-about-canvas" style="position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:2;"></div>
-  </div>
-  <script>
-    let imgs = [];
-    let movers = [];
-    let canvasW, canvasH;
-
-    function preload() {
-      // You can add more images if needed
-      imgs[0] = loadImage('assets/metalicObjects/liquid1.png');
-      imgs[1] = loadImage('assets/metalicObjects/liquid2.png');
-      imgs[2] = loadImage('assets/metalicObjects/metal1.png');
-      imgs[3] = loadImage('assets/metalicObjects/metal2.png');
-      imgs[4] = loadImage('assets/metalicObjects/metal3.png');
-      imgs[5] = loadImage('assets/metalicObjects/metal4.png');
-      imgs[6] = loadImage('assets/metalicObjects/metal5.png');
-      imgs[7] = loadImage('assets/metalicObjects/metal6.png');
-      imgs[8] = loadImage('assets/metalicObjects/metal7.png');
-
-    }
-
-    function setup() {
-      // Get container size
-      const container = document.querySelector('#about .container');
-      canvasW = container.offsetWidth;
-      canvasH = container.offsetHeight;
-      let cnv = createCanvas(canvasW, canvasH);
-      cnv.parent('p5-about-canvas');
-      cnv.style('pointer-events', 'none');
-      // Create movers
-      for (let i = 0; i < imgs.length; i++) {
-        let w = imgs[i].width * 0.2;
-        let h = imgs[i].height * 0.2;
-        movers.push(new Mover(random(canvasW-w), random(canvasH-h), w, h, imgs[i]));
-      }
-    }
-
-    function windowResized() {
-      const container = document.querySelector('#about .container');
-      canvasW = container.offsetWidth;
-      canvasH = container.offsetHeight;
-      resizeCanvas(canvasW, canvasH);
-    }
-
-    function draw() {
-      clear();
-      for (let m of movers) {
-        m.update();
-        m.display();
-      }
-    }
-
-    class Mover {
-      constructor(x, y, w, h, img) {
-        this.x = x;
-        this.y = y;
-        this.w = w;
-        this.h = h;
-        this.img = img;
-        this.vx = random(-1.5, 1.5);
-        this.vy = random(-1.5, 1.5);
-      }
-      update() {
-        this.x += this.vx;
-        this.y += this.vy;
-        // Bounce off edges
-        if (this.x < 0 || this.x + this.w > canvasW) this.vx *= -1;
-        if (this.y < 0 || this.y + this.h > canvasH) this.vy *= -1;
-      }
-      display() {
-        image(this.img, this.x, this.y, this.w, this.h);
-      }
-    }
-  </script>
-</section>
 
 <!-- Moodboard & Process Section -->
 <section class="page-section moodboard-section" id="moodboard">
@@ -211,22 +134,22 @@
       </div>
       <div class="col-12 col-md-3 mb-3">
         <p>Entregable en formato STORIES 1080 px de ancho + 1920 px de alto.</p>
-        <img src="assets/metalicObjects/liquid1.png" alt="" style="width:60px;" />
+        <img src="assets/metalic/silver1.png" alt="" style="width:60px;" />
         <div style="font-size:3rem;font-weight:700;">1</div>
       </div>
       <div class="col-12 col-md-3 mb-3">
         <p>Entregables en formato FEED 1080 px de ancho + 1350 px de alto.</p>
-        <img src="assets/metalicObjects/liquid2.png" alt="" style="width:60px;" />
+        <img src="assets/metalic/silver2.png" alt="" style="width:60px;" />
         <div style="font-size:3rem;font-weight:700;">2</div>
       </div>
       <div class="col-12 col-md-3 mb-3">
         <p>Selección de 5-7 imágenes clave que cuenten la historia a transmitir y que destaquen el concepto dentro del perfil profesional de SOFIA VARGAS.</p>
-        <img src="assets/metalicObjects/metal1.png" alt="" style="width:60px;" />
+        <img src="assets/metalic/silver3.png" alt="" style="width:60px;" />
         <div style="font-size:3rem;font-weight:700;">3</div>
       </div>
       <div class="col-12 col-md-3 mb-3">
         <p>La dirección creativa buscó resaltar la versatilidad de la modelo: su capacidad de transmitir profundidad sin excesos, y de integrarse con la estética conceptual del espacio.</p>
-        <img src="assets/metalicObjects/metal2.png" alt="" style="width:60px;" />
+        <img src="assets/metalic/silver4.png" alt="" style="width:60px;" />
       </div>
     </div>
   </div>
