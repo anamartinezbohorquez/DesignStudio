@@ -11088,6 +11088,7 @@ header.masthead {
   background-size: cover; /* Fill the background */
   background-position: center center;
   background-repeat: no-repeat;
+
   min-height: 100vh; /* Make it full height */
   display: flex;
   align-items: center; /* Center vertically */

@@ -1,18 +1,26 @@
 let t;
+let drops = [];
 
 function setup() {
-  let cnv = createCanvas(window.innerWidth, window.innerHeight);
+  // Get header element and its size
+  const header = document.querySelector('.masthead');
+  const rect = header.getBoundingClientRect();
+  let cnv = createCanvas(rect.width, rect.height);
   cnv.parent('circle-bg-canvas');
-  cnv.style('position', 'fixed');
-  cnv.style('top', '0');
-  cnv.style('left', '0');
+  cnv.position(rect.left, rect.top);
+  cnv.style('position', 'absolute');
   cnv.style('z-index', '-1');
   clear();
   t = 0;
 }
 
 function windowResized() {
-  resizeCanvas(window.innerWidth, window.innerHeight);
+  const header = document.querySelector('.masthead');
+  const rect = header.getBoundingClientRect();
+  resizeCanvas(rect.width, rect.height);
+  let cnv = document.querySelector('canvas');
+  cnv.style.left = rect.left + 'px';
+  cnv.style.top = rect.top + 'px';
   clear();
 }
 
@@ -55,6 +63,8 @@ function drawMetallicLoop(cx, cy, baseR, thickness) {
   ctx.fill();
   ctx.restore();
 
+  // Draw drops
+
   // Draw highlights
   noFill();
   stroke(255, 220);
@@ -89,7 +99,7 @@ function drawMetallicLoop(cx, cy, baseR, thickness) {
 
 function draw() {
   clear();
-  let cx = width / 2;
+  let cx = width * 0.95; // move right (0.5 is center, increase for more right)
   let cy = height / 2;
   let baseRadius = min(width, height) / 4;
   let thickness = baseRadius / 3;
