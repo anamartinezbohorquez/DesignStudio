@@ -11083,11 +11083,11 @@ p {
 
 
 header.masthead {
-  background-image: url("../assets/img/portada.jpg");
+  /*background-image: url("../assets/img/portada.jpg"); 
+  background-color: #000;*/
   background-size: cover; /* Fill the background */
   background-position: center center;
   background-repeat: no-repeat;
-  background-color: #000;
   min-height: 100vh; /* Make it full height */
   display: flex;
   align-items: center; /* Center vertically */
