@@ -35,7 +35,7 @@ function drawMetallicLoop(cx, cy, baseR, thickness) {
     let ang = (i / 200) * 2 * Math.PI;
     let base = noise(i * 0.02, t * 0.003);
     let wobble = noise(i * 0.05 + t * 0.01, t * 0.004);
-    let r = baseR + thickness + 20 * base + 10 * wobble;
+    let r = baseR + thickness + 40 * base + 30 * wobble; // increased wobble
     let x = cx + r * Math.cos(ang);
     let y = cy + r * Math.sin(ang);
     if (i === 0) ctx.moveTo(x, y);
@@ -46,7 +46,7 @@ function drawMetallicLoop(cx, cy, baseR, thickness) {
     let ang = (i / 200) * 2 * Math.PI;
     let base = noise(i * 0.02, t * 0.003 + 100);
     let wobble = noise(i * 0.05 + t * 0.01 + 100, t * 0.004);
-    let r = baseR - thickness + 10 * base + 5 * wobble;
+    let r = baseR - thickness + 20 * base + 15 * wobble; // increased wobble
     let x = cx + r * Math.cos(ang);
     let y = cy + r * Math.sin(ang);
     ctx.lineTo(x, y);
@@ -58,7 +58,7 @@ function drawMetallicLoop(cx, cy, baseR, thickness) {
   // Draw highlights
   noFill();
   stroke(255, 220);
-  strokeWeight(4);
+  strokeWeight(1);
   beginShape();
   for (let i = 0; i < 200; i++) {
     let ang = map(i, 0, 200, 0, TWO_PI);
