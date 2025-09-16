@@ -14,11 +14,13 @@ function setup() {
   t = 0;
 
   // Create metallic floating drops
+  let cx = rect.width; // match cx in draw()
   drops = [];
   for (let i = 0; i < 40; i++) {
     drops.push({
       ang: random(TWO_PI),
       orbitR: random(80, 400),
+      //orbitR: random(-cx, rect.width - cx), // covers full header width
       speed: random(0.001, 0.01),
       size: random(15, 35),
       noiseOffset: random(1000)
@@ -119,9 +121,9 @@ function drawDrops(cx, cy, baseR) {
 
 function draw() {
   clear();
-  let cx = width * 0.5;  // center of header
+  let cx = width * 0.9;  // 
   let cy = height / 2;
-  let baseRadius = min(width, height) / 4;
+  let baseRadius = min(width, height) / 4; // Base radius of the loop
   let thickness = baseRadius / 3;
 
   drawMetallicLoop(cx, cy, baseRadius, thickness);
