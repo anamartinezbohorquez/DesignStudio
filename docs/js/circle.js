@@ -10,8 +10,20 @@ function setup() {
   cnv.position(rect.left, rect.top);
   cnv.style('position', 'absolute');
   cnv.style('z-index', '-1');
-  clear();
+  noStroke();
   t = 0;
+
+  // Create metallic floating drops
+  drops = [];
+  for (let i = 0; i < 40; i++) {
+    drops.push({
+      ang: random(TWO_PI),
+      orbitR: random(80, 400),
+      speed: random(0.001, 0.01),
+      size: random(15, 35),
+      noiseOffset: random(1000)
+    });
+  }
 }
 
 function windowResized() {
@@ -21,14 +33,13 @@ function windowResized() {
   let cnv = document.querySelector('canvas');
   cnv.style.left = rect.left + 'px';
   cnv.style.top = rect.top + 'px';
-  clear();
 }
 
 function drawMetallicLoop(cx, cy, baseR, thickness) {
   let ctx = drawingContext;
   ctx.save();
 
-  // Create a radial metallic gradient for the loop
+  // Radial metallic gradient
   let grad = ctx.createRadialGradient(cx, cy, baseR - thickness, cx, cy, baseR + thickness);
   grad.addColorStop(0, "#e0e0e0");
   grad.addColorStop(0.3, "#b0b0b0");
@@ -40,21 +51,21 @@ function drawMetallicLoop(cx, cy, baseR, thickness) {
   ctx.beginPath();
   // Outer edge
   for (let i = 0; i <= 200; i++) {
-    let ang = (i / 200) * 2 * Math.PI;
+    let ang = (i / 200) * TWO_PI;
     let base = noise(i * 0.02, t * 0.003);
     let wobble = noise(i * 0.05 + t * 0.01, t * 0.004);
-    let r = baseR + thickness + 40 * base + 30 * wobble; // increased wobble
+    let r = baseR + thickness + 40 * base + 30 * wobble;
     let x = cx + r * Math.cos(ang);
     let y = cy + r * Math.sin(ang);
     if (i === 0) ctx.moveTo(x, y);
     else ctx.lineTo(x, y);
   }
-  // Inner edge (reverse)
+  // Inner edge
   for (let i = 200; i >= 0; i--) {
-    let ang = (i / 200) * 2 * Math.PI;
+    let ang = (i / 200) * TWO_PI;
     let base = noise(i * 0.02, t * 0.003 + 100);
     let wobble = noise(i * 0.05 + t * 0.01 + 100, t * 0.004);
-    let r = baseR - thickness + 20 * base + 15 * wobble; // increased wobble
+    let r = baseR - thickness + 20 * base + 15 * wobble;
     let x = cx + r * Math.cos(ang);
     let y = cy + r * Math.sin(ang);
     ctx.lineTo(x, y);
@@ -62,49 +73,59 @@ function drawMetallicLoop(cx, cy, baseR, thickness) {
   ctx.closePath();
   ctx.fill();
   ctx.restore();
+}
 
-  // Draw drops
+function drawMetallicSphere(x, y, size, noiseOffset) {
+  let ctx = drawingContext;
 
-  // Draw highlights
-  noFill();
-  stroke(255, 220);
-  strokeWeight(1);
-  beginShape();
-  for (let i = 0; i < 200; i++) {
-    let ang = map(i, 0, 200, 0, TWO_PI);
-    let base = noise(i * 0.02, t * 0.003);
-    let wobble = noise(i * 0.05 + t * 0.01, t * 0.004);
-    let r = baseR + thickness * 0.7 + 10 * base + 5 * wobble;
-    let x = cx + r * cos(ang);
-    let y = cy + r * sin(ang);
-    curveVertex(x, y);
+  // Create metallic gradient
+  let grad = ctx.createRadialGradient(
+    x - size * 0.3, y - size * 0.3, size * 0.1,
+    x, y, size
+  );
+  grad.addColorStop(0, "#f0f0f0");
+  grad.addColorStop(0.2, "#b0b0b0");
+  grad.addColorStop(0.5, "#666");
+  grad.addColorStop(0.8, "#333");
+  grad.addColorStop(1, "#000");
+  ctx.fillStyle = grad;
+
+  // Wobbly edge
+  ctx.beginPath();
+  let steps = 60;
+  for (let i = 0; i <= steps; i++) {
+    let ang = (i / steps) * TWO_PI;
+    let wobble = noise(noiseOffset + t * 0.01, cos(ang), sin(ang));
+    let r = size * 0.5 * (0.85 + wobble * 0.3);
+    let px = x + cos(ang) * r;
+    let py = y + sin(ang) * r;
+    if (i === 0) ctx.moveTo(px, py);
+    else ctx.lineTo(px, py);
   }
-  endShape(CLOSE);
+  ctx.closePath();
+  ctx.fill();
+}
 
-  // Draw shadow
-  stroke(80, 80, 80, 120);
-  strokeWeight(6);
-  beginShape();
-  for (let i = 0; i < 200; i++) {
-    let ang = map(i, 0, 200, 0, TWO_PI);
-    let base = noise(i * 0.02, t * 0.003 + 50);
-    let wobble = noise(i * 0.05 + t * 0.01 + 50, t * 0.004);
-    let r = baseR - thickness * 0.7 + 10 * base + 5 * wobble;
-    let x = cx + r * cos(ang);
-    let y = cy + r * sin(ang);
-    curveVertex(x, y);
+function drawDrops(cx, cy, baseR) {
+  for (let d of drops) {
+    d.ang += d.speed;
+    let rNoise = noise(d.noiseOffset + t * 0.005) * 40 - 20;
+    let r = baseR + d.orbitR + rNoise;
+    let x = cx + r * cos(d.ang);
+    let y = cy + r * sin(d.ang);
+    drawMetallicSphere(x, y, d.size, d.noiseOffset);
   }
-  endShape(CLOSE);
 }
 
 function draw() {
   clear();
-  let cx = width * 0.95; // move right (0.5 is center, increase for more right)
+  let cx = width * 0.5;  // center of header
   let cy = height / 2;
   let baseRadius = min(width, height) / 4;
   let thickness = baseRadius / 3;
 
   drawMetallicLoop(cx, cy, baseRadius, thickness);
+  drawDrops(cx, cy, baseRadius);
 
   t += 1;
 }
