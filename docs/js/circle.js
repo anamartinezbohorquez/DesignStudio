@@ -2,12 +2,11 @@ let t;
 let drops = [];
 
 function setup() {
-  // Get header element and its size
   const header = document.querySelector('.masthead');
   const rect = header.getBoundingClientRect();
   let cnv = createCanvas(rect.width, rect.height);
   cnv.parent('circle-bg-canvas');
-  cnv.position(rect.left, rect.top);
+  cnv.position(rect.left + window.scrollX, rect.top + window.scrollY);
   cnv.style('position', 'absolute');
   cnv.style('z-index', '-1');
   noStroke();
@@ -33,8 +32,8 @@ function windowResized() {
   const rect = header.getBoundingClientRect();
   resizeCanvas(rect.width, rect.height);
   let cnv = document.querySelector('canvas');
-  cnv.style.left = rect.left + 'px';
-  cnv.style.top = rect.top + 'px';
+  cnv.style.left = (rect.left + window.scrollX) + 'px';
+  cnv.style.top = (rect.top + window.scrollY) + 'px';
 }
 
 function drawMetallicLoop(cx, cy, baseR, thickness) {
