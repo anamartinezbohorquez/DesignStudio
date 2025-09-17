@@ -120,8 +120,8 @@ function drawDrops(cx, cy, baseR) {
 
 function draw() {
   clear();
-  let cx = width * 0.9;  // 
-  let cy = height / 2;
+  let cx = width * 0.9;  // width
+  let cy = height / 2;  // height
   let baseRadius = min(width, height) / 3; // Base radius of the loop
   let thickness = baseRadius / 3; // Thickness of the loop
 

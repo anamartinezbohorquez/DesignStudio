@@ -11188,6 +11188,17 @@ header.masthead .masthead-heading {
   }
 }
 
+/* text effects */
+.name {
+  display: inline-block;
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 
 /* ===== About Section ===== */
 .about-section {
